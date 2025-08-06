@@ -9,6 +9,12 @@ fr:
   buildFuture: true
   params:
     contact_details:
+      social_networks:
+        linkedin:
+          label: >-
+            lydiemarion
+          value: >-
+            https://www.linkedin.com/in/lydiemarion/
 
   taxonomies:
     administrator: administrators
