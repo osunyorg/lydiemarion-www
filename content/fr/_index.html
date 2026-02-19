@@ -5,12 +5,12 @@ breadcrumb_title: >-
   Accueil
 
 header_text: >-
-  Titre en haut de page Test
+  Titre en haut de page
 
 url: "/"
 slug: ""
 date: 2025-06-10T20:34:46+02:00
-lastmod: 2026-02-19T17:39:29+01:00
+lastmod: 2026-02-19T18:23:02+01:00
 meta:
   hugo:
     permalink: "/"
@@ -19,7 +19,7 @@ meta:
     slug: ""
   dates:
     created_at: 2025-06-10T20:34:46+02:00
-    updated_at: 2026-02-19T17:39:29+01:00
+    updated_at: 2026-02-19T18:23:02+01:00
     published_at: 2025-06-10T20:34:46+02:00
 search:
   id: "a9d3bd08-1663-4b93-aeda-219dabc36c56"
@@ -32,7 +32,7 @@ search:
   summary: >-
     <p>Résumé</p>
   body: >-
-    <p>Titre unique  <br>Sous-titre</p>  <p>Contact</p>  <p>Portfolio</p>
+    <p>Titre unique  <br>Sous-titre</p>  <p>Voir mes réalisations</p>  <p>Me contacter</p>
 
 breadcrumbs:
   - title: >-
@@ -67,7 +67,7 @@ header_cta:
 
 
 contents_reading_time:
-  seconds: 1
+  seconds: 2
   text: >-
     moins d'une minute
 contents:
@@ -96,38 +96,15 @@ contents:
       buttons:
         - 
           title: >-
-            Contact
+            Voir mes réalisations
 
           target_blank: false
         - 
           title: >-
-            Portfolio
+            Me contacter
 
           target_blank: false
 
-
-  - kind: block
-    template: projects
-
-
-    ranks:
-      base: 2
-    top:
-      active: false
-
-    data:
-      mode: category
-      layout: grid
-      options:
-        categories: true
-        image: true
-        subtitle: true
-        summary: false
-        year: true
-
-      projects:
-
-      quantity: 0
 
   - kind: block
     template: projects
@@ -140,15 +117,14 @@ contents:
       active: false
 
     data:
-      mode: all
-      all: true
+      mode: selection
       layout: grid
       options:
         categories: true
         image: true
         subtitle: true
         summary: false
-        year: true
+        year: false
 
       projects:
         - permalink: "/projets/2025-projet-1/"
