@@ -1,8 +1,8 @@
 ---
 title: Menu principal
 items:
-- title: Projets
-  slug: projets
+- title: Réalisations
+  slug: realisations
   target: "/projets/"
   kind: page
   new_tab: false
