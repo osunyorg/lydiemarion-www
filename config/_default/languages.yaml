@@ -10,6 +10,11 @@ fr:
   params:
     contact_details:
       social_networks:
+        instagram:
+          label: >-
+            lydiem.design
+          value: >-
+            https://instagram.com/lydiem.design
         linkedin:
           label: >-
             lydiemarion

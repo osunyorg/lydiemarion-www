@@ -1,7 +1,39 @@
 default:
 contents_reading_time:
-  seconds: 0
+  seconds: 7
   text: >-
     moins d'une minute
 contents:
+  - kind: block
+    template: call_to_action
+    title: >-
+      Un projet de refonte ?
+    slug: >-
+      un-projet-de-refonte
+    ranks:
+      base: 2
+      self: 2
+    html_class: "block-class-footer-cta"
+    top:
+      active: true
+      title: 
+        value: >-
+          Un projet de refonte ?
+        heading: 2
+      description: >-
+        <p>Si vous sentez que votre site ne reflète plus votre activité, <br>c'est probablement le bon moment pour le repenser.</p>
+    data:
+      layout: no_background
+      text: >-
+        <p>Si vous sentez que votre site ne reflète plus votre activité, <br>c'est probablement le bon moment pour le repenser.</p>
+
+      buttons:
+        - 
+          title: >-
+            Discutons de votre projet
+          url: >-
+            #
+          target_blank: false
+
+
 
