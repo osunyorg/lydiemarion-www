@@ -10,9 +10,9 @@ items:
   descendants_targets: []
   path: "/projects"
   file: content/fr/projects/_index.html
-- title: hello@lydiemarion.fr
-  slug: hello-lydiemarion-fr
-  target: mailto:hello@lydiemarion.fr
+- title: Contact
+  slug: contact
+  target: ''
   kind: url
   new_tab: false
   children: []
