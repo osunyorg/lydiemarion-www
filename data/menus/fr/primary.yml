@@ -3,7 +3,7 @@ title: Menu principal
 items:
 - title: Réalisations
   slug: realisations
-  target: "/projets/"
+  target: "/realisations/"
   kind: page
   new_tab: false
   children: []
