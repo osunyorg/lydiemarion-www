@@ -7,24 +7,26 @@ breadcrumb_title: >-
 
 bodyclass: >-
   ancestor-home-hero
-url: "/actualites/"
+url: "/"
 slug: "actualites"
+aliases:
+  - /../actualites/
 date: 2025-06-10T20:34:46+02:00
-lastmod: 2025-06-10T20:34:48+02:00
+lastmod: 2026-04-14T14:32:00+02:00
 meta:
   hugo:
-    permalink: "/actualites/"
+    permalink: "/"
     path: "/posts"
     file: "content/fr/posts/_index.html"
     slug: "actualites"
   dates:
     created_at: 2025-06-10T20:34:46+02:00
-    updated_at: 2025-06-10T20:34:48+02:00
+    updated_at: 2026-04-14T14:32:00+02:00
     published_at: 2025-06-10T20:34:46+02:00
 search:
   id: "8d3f5dd2-a6fc-48ab-872c-3434e681f66c"
   about_id: "f35257fe-2931-41bc-9562-1f036f30c0f4"
-  url: "/actualites/"
+  url: "/"
   kind: "Communication::Website::Page::Localization"
   lang: "fr"
   title: >-
@@ -36,8 +38,6 @@ breadcrumbs:
   - title: >-
       Accueil
     path: "/"
-  - title: >-
-      Actualités
 
 design:
   full_width: true
@@ -46,6 +46,10 @@ design:
     offcanvas: true
 
 
+build:
+  list: always
+  publishResources: true
+  render: never
 
 position: 2
 weight: 2
