@@ -1,6 +1,15 @@
 ---
 title: Menu principal
 items:
+- title: Services
+  slug: services
+  target: "/services/"
+  kind: page
+  new_tab: false
+  children: []
+  descendants_targets: []
+  path: "/pages/services"
+  file: content/fr/pages/services/_index.html
 - title: Réalisations
   slug: realisations
   target: "/realisations/"
