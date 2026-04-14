@@ -21,9 +21,12 @@ items:
   file: content/fr/projects/_index.html
 - title: Contact
   slug: contact
-  target: ''
-  kind: url
+  target: "/contact/"
+  kind: page
   new_tab: false
   children: []
   descendants_targets: []
+  html_class: menu-class-btn-contact
+  path: "/pages/contact"
+  file: content/fr/pages/contact/_index.html
 
