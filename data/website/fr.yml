@@ -1,6 +1,6 @@
 default:
 contents_reading_time:
-  seconds: 7
+  seconds: 8
   text: >-
     moins d'une minute
 contents:
@@ -32,7 +32,7 @@ contents:
           title: >-
             Discutons de votre projet
           url: >-
-            #
+            /contact
           target_blank: false
 
 
