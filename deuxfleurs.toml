@@ -15,38 +15,38 @@ for = ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.webp"]
 Cache-Control = "max-age=31536000, no-transform, public"
 
 [[redirects]]
-from = "/lydie-marion/actualites/index.html"
+from = "/lydie-marion/actualites/"
 to = "/equipe/lydie-marion/actualites/"
 
 [[redirects]]
-from = "/realisations/2025-projet-3/index.html"
+from = "/realisations/2025-projet-3/"
 to = "/realisations/2022-projet-3/"
 
 [[redirects]]
-from = "/projets/2022-projet-2/index.html"
+from = "/projets/2022-projet-2/"
 to = "/realisations/2022-projet-2/"
 
 [[redirects]]
-from = "/lydie-marion/index.html"
+from = "/lydie-marion/"
 to = "/equipe/lydie-marion/"
 
 [[redirects]]
-from = "/ux-design/index.html"
+from = "/ux-design/"
 to = "/actualites/ux-design/"
 
 [[redirects]]
-from = "/2025-06-18-titre-actualite/index.html"
+from = "/2025-06-18-titre-actualite/"
 to = "/actualites/2025-06-18-titre-actualite/"
 
 [[redirects]]
-from = "/projets/2025-projet-1/index.html"
+from = "/projets/2025-projet-1/"
 to = "/realisations/2025-projet-1/"
 
 [[redirects]]
-from = "/realisations/2019-projet-2/index.html"
+from = "/realisations/2019-projet-2/"
 to = "/realisations/2022-projet-2/"
 
 [[redirects]]
-from = "/projets/index.html"
+from = "/projets/"
 to = "/realisations/"
 
