@@ -14,3 +14,39 @@ for = ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.webp"]
 [headers.values]
 Cache-Control = "max-age=31536000, no-transform, public"
 
+[[redirects]]
+from = "/lydie-marion/actualites/index.html"
+to = "/equipe/lydie-marion/actualites/"
+
+[[redirects]]
+from = "/realisations/2025-projet-3/index.html"
+to = "/realisations/2022-projet-3/"
+
+[[redirects]]
+from = "/projets/2022-projet-2/index.html"
+to = "/realisations/2022-projet-2/"
+
+[[redirects]]
+from = "/lydie-marion/index.html"
+to = "/equipe/lydie-marion/"
+
+[[redirects]]
+from = "/ux-design/index.html"
+to = "/actualites/ux-design/"
+
+[[redirects]]
+from = "/2025-06-18-titre-actualite/index.html"
+to = "/actualites/2025-06-18-titre-actualite/"
+
+[[redirects]]
+from = "/projets/2025-projet-1/index.html"
+to = "/realisations/2025-projet-1/"
+
+[[redirects]]
+from = "/realisations/2019-projet-2/index.html"
+to = "/realisations/2022-projet-2/"
+
+[[redirects]]
+from = "/projets/index.html"
+to = "/realisations/"
+
