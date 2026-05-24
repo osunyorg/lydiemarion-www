@@ -1,13 +1,56 @@
 theme: osuny
 _merge: deep
 params:
-  summary:
-    position: hero
+
+  breadcrumb:
+    extendable: false
+    position: hero-end
+
   search:
-    active: true
-  logo:
-    header: ''
-    footer: ''
-  home:
-    head:
-      title: site
+    active: false
+
+  share_links:
+    enabled: false
+    
+  image_sizes:
+    _default:
+      hero:
+        mobile:   400
+        tablet:   800
+        desktop:  1000
+    sections:
+      home:
+        hero:
+          mobile:   400
+          tablet:   800
+          desktop:  1200
+
+
+  # SECTIONS
+  default:
+    single:
+        position: hero
+        show_name: false
+    sitemap:
+      ignore_children: false
+
+  projects:
+    index:
+      layout: large # alternate | grid | large | list
+      options:
+        image: true
+        subtitle: true
+        summary: false
+        year: false
+      truncate_description: 200 # Set to 0 to disable truncate
+      taxonomies:
+        position: none
+    single:
+      navigation:
+        reversed: false
+      taxonomies:
+        position: none
+        show_name: false
+      summary:
+        position: hero # hero | content
+      

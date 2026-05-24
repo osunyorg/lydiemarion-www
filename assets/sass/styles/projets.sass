@@ -1,0 +1,106 @@
+// PAGE REALISATIONS
+
+body.full-width
+
+    .project
+        .media
+            border-radius: pxToRem(8)
+
+        .project-content
+            padding-bottom: space(16)
+            .project-title
+                font-size: pxToRem(14)
+                font-family: $body-font-family
+                font-weight: 600
+            .project-subtitle
+                font-size: pxToRem(40)
+                margin-top: space(8)
+                color: $color-text
+                font-weight: 600
+            .more
+                margin-top: space(8)
+    
+        .project-categories 
+            li a
+                font-size: pxToRem(14)
+                border: 1px solid var(--color-border)
+                border-radius: 3.125rem
+                color: inherit
+                padding: .125rem .75rem
+                text-decoration: none
+                transition: .3s
+                &:hover
+                    background: $color-text
+                    color: $color-background
+
+
+
+// PAGE D UN PROJET
+
+// Gallery images
+.block-image figure picture
+    margin-left: 0
+    margin-right: 0
+
+.block-image,
+.block-gallery
+    margin-top: space(2)
+    margin-bottom: space(2)
+
+.projects__page.full-width .block-gallery .gallery
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    word-break: break-word
+    gap: space(2) space(2)
+
+@include media-breakpoint-down(desktop)
+    .projects__page .block-gallery .gallery
+        display: flex !important
+
+@include media-breakpoint-down(desktop)
+    .block-gallery--grid .gallery>figure
+        flex-basis: 100%
+        flex-grow: 1
+
+.block-gallery img,
+.block-image img,
+.block-siblings-navigation img,
+.hero img, .project img
+        border-radius: pxToRem(8)
+
+.projects__page
+
+    .hero
+        background: $color-hero
+
+        img
+            border-radius:  pxToRem(8)
+
+        .hero-text h1
+            font-size: pxToRem(18)
+            font-family: $body-font-family
+            font-weight: 600
+
+            span
+                font-family: $heading-font-family
+                font-size: pxToRem(56)
+                line-height: 100%
+                font-weight: 600
+                color: $color-text
+                padding-top: space(8)
+
+.projects__page.page-demoiselle-absolue
+    .hero
+        background: #cfd0cb
+
+.projects__page.page-decolines
+    .hero
+        background: #A5B17E
+
+.projects__page.page-koalibio
+    .hero
+        background: #C4A56C
+
+
+.hero .taxonomies-single
+    margin-top: 0

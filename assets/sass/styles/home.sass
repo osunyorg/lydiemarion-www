@@ -1,0 +1,436 @@
+// HOME
+
+body.full-width.page__home .block
+    margin-top: space(48)
+    margin-bottom: space(48)
+
+// SURTITRE
+body.full-width .block-class-home-piliers .block-title,
+body.full-width .block-class-home-offre .block-title,
+body.full-width .block-class-home-apropos .block-title,
+body.full-width .block-class-home-comment .block-title
+
+    font-size: pxToRem(14)
+    font-family: $body-font-family
+    font-weight: 600
+    letter-spacing: 8%
+    text-transform: uppercase
+
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+    border-radius: pxToRem(8)
+    
+    color: $color-text
+    &::before
+        display: inline-flex
+        content: ''
+        background-image: url('/assets/images/deco-title-f-o.svg')
+        background-size: 14px 14px
+        height: 14px
+        width: 14px
+
+
+// HERO
+.page__home header.hero
+    
+    background: $color-hero no-repeat
+
+    padding-bottom: $spacing-6
+    padding-top: space(40)
+
+    @media (max-width: 992px)
+        padding-bottom: $spacing-4
+        padding-top: space(16) 
+
+    .content hgroup.has-lead > p
+        font-family: $body-font-family
+        text-wrap: pretty
+        font-size: pxToRem(26)
+        text-align: center
+
+        @media (max-width: 992px)
+            font-size: pxToRem(18)
+    
+    .content h1
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+
+        span
+            order: -1
+            display: flex
+            align-items: center
+            width: fit-content
+
+            text-transform: uppercase
+            font-family: $body-font-family
+            font-weight: 600
+            letter-spacing: 9% 
+            line-height: normal
+            color: $color-text
+            font-size: pxToRem(14)
+
+            background: hsla(0, 0%, 100%, 0.20)
+            margin-bottom: $spacing-3
+            padding-right: space(5)
+            border-radius: pxToRem(50)
+
+            &:before
+                display: block
+                margin-right: $spacing-1
+                content: ''
+                background-image: url('/assets/images/profil-header.png')
+                background-repeat: no-repeat
+                background-size: 40px 40px
+                height: 40px
+                width: 40px
+
+
+    @media (min-width: 992px)
+        .content
+            padding-top: 0
+        .hero-text
+            display: flex
+            align-items: center
+            flex-direction: column
+            margin-left: auto
+            margin-right: auto
+          
+
+
+// PROBLEME
+.page__home .document-content > .blocks .block:first-child
+
+
+    background-image: url('/assets/images/bck-pb.jpg')
+    background-repeat: no-repeat
+    background-position: bottom center
+    background-size: 100%
+
+    margin-top: 0
+    margin-bottom: 0
+
+    padding-top: space(24)
+    padding-bottom: space(24)
+
+body.full-width .block-class-home-pb 
+
+    margin-bottom: 0
+
+    background: $color-hero
+
+    .container
+        max-width: 65%
+
+    .block-content
+        padding: pxToRem(32)
+        margin-top: 0
+
+    .chapter .text
+        width: 100%
+        /*display: flex*/
+        /*justify-content: space-between*/
+
+    .block-title
+        text-wrap: balance;
+        font-weight: 600
+        text-transform: none
+        font-size: pxToRem(32)
+        text-align: center
+
+    .rich-text
+        text-wrap: pretty;
+        font-family: $body-font-family
+        font-size: pxToRem(22)
+        text-align: center
+        line-height: 130%
+
+    .text
+        .top
+            margin-bottom: 1rem
+
+    .container2:before
+        display: block
+        content: ''
+        background-image: url('/assets/images/arrow-header.svg')
+        background-repeat: no-repeat
+        background-size: 54px 89px
+        height: 89px
+        width: 54px
+
+
+// PILIERS
+body.full-width .block.block-class-home-piliers
+    margin-top: $spacing-6
+    /*background: linear-gradient(180deg, #FFF 0%, rgba(255, 250, 242, 0.00) 100%)*/
+
+    .top
+        text-align: center
+        margin-left: auto
+        margin-right: auto
+
+    .block-content ul li
+        
+        .name
+            display: inline-flex
+
+            text-transform: uppercase
+            font-size: pxToRem(16)
+            font-weight: 600
+            letter-spacing: 6%
+
+            border-left: solid 1px $color-text
+            border-right: solid 1px $color-text
+            border-radius: pxToRem(4)
+            
+            padding: pxToRem(8) pxToRem(16)
+
+        p:first-child
+            font-size: $h3-size-desktop
+            font-weight: 600
+            line-height: 110%
+            font-family: $heading-font-family
+
+        img
+            border-radius: pxToRem(8)
+            aspect-ratio: inherit
+            max-width: 100%
+
+        &:first-child img
+            /*border-radius: pxToRem(16) pxToRem(100) pxToRem(16) pxToRem(100)*/
+
+        &:last-child img
+            /*border-radius: pxToRem(100) pxToRem(16) pxToRem(100) pxToRem(16)*/
+
+    .description p
+        font-size: pxToRem(64)
+        text-wrap: pretty
+        font-family: $heading-font-family
+        font-weight: 600
+        line-height: 110%
+        
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(44)
+
+
+
+// AVIS
+
+body.full-width .block.block-class-home-avis
+
+    margin-top: 0
+    margin-bottom: 0
+
+body.full-width .block-class-home-avis
+
+    background-color: $color-hero-background-2
+
+    .block-content
+        padding-top: pxToRem(64)
+        padding-bottom: pxToRem(32)
+
+    .block-title
+        text-transform: none
+        font-size: pxToRem(32)
+        font-weight: 600
+
+    .testimonial
+        .meta
+            font-size: pxToRem(14)
+
+
+// VOUS ETES
+
+body.full-width .block-class-home-offres-header
+
+    .container
+        background: #FFFFFF
+        border-radius: pxToRem(50)
+        padding: pxToRem(56) pxToRem(64)
+
+    .top
+        width: 80%
+    
+    .text
+        display: flex
+        justify-content: center
+        flex-direction: column
+        align-items: center
+        width: 100% !important
+    
+    .block-title
+        text-transform: none
+        font-size: pxToRem(40)
+        font-weight: 600
+        text-align: center
+        text-wrap: balance
+        
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(32)
+
+    .notes a
+        font-size: pxToRem(32)
+        font-weight: 600
+        color: #7075EF
+        text-decoration-color: #bdbff9
+
+    .notes a:hover
+        text-decoration-color: #7075EF
+
+    .rich-text ul
+
+        padding: 0
+        text-align: center
+
+        li
+            padding-bottom: pxToRem(26)
+            padding-right: pxToRem(32)
+
+            font-size: pxToRem(34)
+            text-align: center
+            list-style-type: none
+            display: inline-flex
+            color: hsla(0, 0%, 0%, 0.40)
+            font-weight: 600
+            gap: pxToRem(32)
+            align-items: center
+
+            @include media-breakpoint-down(desktop)
+                font-size: pxToRem(26)
+
+        li:not(:last-child):after
+                    display: inline-flex
+                    content: ''
+                    background-image: url('/assets/images/deco-title-f-o.svg')
+                    background-repeat: no-repeat
+        
+                    background-size: 14px 14px
+                    height: 14px
+                    width: 14px
+
+
+
+
+// REALISATIONS
+
+body.full-width .block.block-class-home-realisations
+
+    background: $footer-background-color
+    color: $color-background
+    margin-bottom: 0
+    padding-top: space(32)
+
+    .top
+        margin-bottom: space(24)
+
+    .block-title
+        color: $color-background
+        font-size: pxToRem(64)
+        text-transform: none
+        font-weight: 600
+        text-align: center
+
+    .project
+
+        .project-title a
+            color: $color-background
+
+        .project-content .project-subtitle
+            font-size: pxToRem(26)
+            color: $color-background
+            margin-top: pxToRem(16)
+
+        .project-categories li a
+            color: hsla(0, 0%, 100%, 0.70)
+            &:hover
+                background: $color-background
+                color: $color-text
+
+        .project-categories li a
+            border-color: hsla(0, 0%, 100%, 0.70)
+
+.block-class-home-realisations
+    margin-bottom: 2rem
+
+
+// cta
+body.full-width .block.block-class-home-cta-realisations
+
+    margin-top: 0
+    margin-bottom: 0
+    padding-bottom: pxToRem(56)
+    background: $footer-background-color
+
+    .block-content
+        padding-top: 0
+        padding-bottom: 0
+        text-align: center
+
+
+
+
+// COMMENT
+
+body.full-width .block-class-home-comment
+
+    margin-top: space(32) !important
+
+    .name
+        font-size: $h3-size-desktop
+        font-weight: 600
+        line-height: 110%
+        font-family: $heading-font-family
+    
+    .top
+        text-align: center
+        margin-left: auto
+        margin-right: auto
+
+    .block-title
+        text-align: center
+
+    .description
+        font-size: pxToRem(64)
+        font-family: $heading-font-family
+        text-transform: none
+        font-weight: 600
+        line-height: 120%
+    li
+        align-items: start
+
+
+// A PROPOS
+body.full-width.page__home .block-class-home-apropos
+
+    background: $color-hero-background-2
+    margin-bottom: 0
+    padding-bottom: space(48)
+
+    .container
+        
+        border-radius: pxToRem(50)
+        padding: pxToRem(56) pxToRem(64)
+
+    .chapter
+        align-items: center
+
+    .rich-text p:first-child
+        font-size: pxToRem(32)
+        font-weight: 600
+        line-height: 130%
+        text-wrap: balance
+        margin-top: pxToRem(24)
+
+    .chapter img
+        transform: rotate(5deg)
+
+body.full-width.page__home .block.block-class-footer-cta
+    margin-top: 0
+
+
+

@@ -1,0 +1,44 @@
+footer#document-footer
+    background: $footer-background-color
+
+footer#document-footer,
+footer#document-footer a
+    color: $color-background
+    
+footer#document-footer
+    .container:first-child
+        display: none
+
+.footer-credit
+    margin-top: 0
+    
+footer#document-footer .container + .container
+    padding-top: 0
+
+@media (min-width: 992px)
+    footer#document-footer .container .footer-legals .nav-legal
+        display: inline-block
+        li
+            display: inline-block
+            margin-right: 1.5rem
+
+// FOOTER BLOCK
+
+body.full-width .block.block-class-footer-cta
+    margin-bottom: 0
+    /*border-top-left-radius: pxToRem(56)*/
+    /*border-top-right-radius: pxToRem(56)*/
+
+    .block-content
+        border-bottom: solid 1px hsla(0, 0%, 100%, 0.20)
+    .block-title
+        font-size: pxToRem(24)
+        color: $color-hero
+        text-transform: none
+
+    .description p
+        font-size: pxToRem(32)
+        text-wrap: pretty
+        
+        font-family: $body-font-family
+        font-weight: $body-weight

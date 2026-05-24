@@ -1,0 +1,104 @@
+// TOUTES LES PAGES
+
+body
+    line-height: $body-line-height
+    letter-spacing: $body-letter-spacing
+    
+
+
+// HERO
+
+header#document-header
+    border-bottom: solid 1px hsla(0%, 0%, 0%, 0.20)
+
+.hero--with-image
+    padding-bottom: 0
+
+.page-page-services
+    .hero
+        background: $color-hero
+
+.page-page-contact
+    .hero
+        background: $color-hero-background-4
+
+.projects__section
+    .hero
+        background: $color-hero-background-2
+
+// MENU
+#navigation.menu
+
+    li
+        margin-left: space(8)
+
+    li:last-child
+        background: hsla(0, 0%, 100%, 0.30)
+        padding-right: 0.75rem
+        border-radius: $btn-border-radius
+    
+    .nav-level-1 > li > a.active:after
+        display: block
+        content: ''
+        height: 1px
+        width: 100%
+        background: $color-text
+        margin-top: 8px
+
+// BOUTON
+.btn
+    padding: 1.125rem 2rem
+
+/*.btn:after
+    content: " "
+    display: inline-block
+    width: 40px
+    height: 20px
+    visibility: hidden
+    font-family: Icon
+    font-style: normal
+    font-variant: normal
+    font-weight: 400
+    line-height: 1
+    text-transform: none
+    transition: .55s cubic-bezier(0, .65, .4, 1.2)*/
+
+/*.btn:hover:after
+    visibility: visible
+    transform: translateX(.625rem)*/
+
+
+// Breadcrumb
+.breadcrumb li, .breadcrumb li a
+    font-size: pxToRem(14)
+
+.breadcrumb li.active
+    color:  hsla(0,0%,7%,.8)
+
+
+// BLOCK FEATURES
+
+// BLOC CHAPTER 
+.block-chapter .notes
+    font-weight: 800
+
+// PAGE OFFRES
+.page-offres
+
+    .hero
+
+        img
+            border-radius:  pxToRem(8)
+
+        .hero-text h1
+            font-size: pxToRem(18)
+            font-family: $body-font-family
+            font-weight: 600
+
+            span
+                font-family: $heading-font-family
+                font-size: pxToRem(56)
+                line-height: 100%
+                font-weight: 600
+                color: $color-text
+                padding-top: space(8)
