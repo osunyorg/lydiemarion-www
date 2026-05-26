@@ -10,16 +10,15 @@ body.full-width .block-class-home-offre .block-title,
 body.full-width .block-class-home-apropos .block-title,
 body.full-width .block-class-home-comment .block-title
 
-    font-size: pxToRem(14)
+    font-size: pxToRem(18)
     font-family: $body-font-family
     font-weight: 600
-    letter-spacing: 8%
     text-transform: uppercase
 
-    display: inline-flex;
-    height: 34px;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex
+    height: 34px
+    justify-content: center
+    align-items: center
 
     gap: 8px;
     border-radius: pxToRem(8)
@@ -42,7 +41,7 @@ body.full-width .block-class-home-comment .block-title
     padding-bottom: $spacing-6
     padding-top: space(40)
 
-    @media (max-width: 992px)
+    @include media-breakpoint-down(desktop)
         padding-bottom: $spacing-4
         padding-top: space(16) 
 
@@ -52,7 +51,7 @@ body.full-width .block-class-home-comment .block-title
         font-size: pxToRem(26)
         text-align: center
 
-        @media (max-width: 992px)
+        @include media-breakpoint-down(desktop)
             font-size: pxToRem(18)
     
     .content h1
@@ -75,6 +74,9 @@ body.full-width .block-class-home-comment .block-title
             color: $color-text
             font-size: pxToRem(14)
 
+            @include media-breakpoint-down(desktop)
+                font-size: pxToRem(12)
+
             background: hsla(0, 0%, 100%, 0.20)
             margin-bottom: $spacing-3
             padding-right: space(5)
@@ -90,8 +92,10 @@ body.full-width .block-class-home-comment .block-title
                 height: 40px
                 width: 40px
 
+    .hero-actions
+        text-align: center
 
-    @media (min-width: 992px)
+    @include media-breakpoint-up(desktop)
         .content
             padding-top: 0
         .hero-text
@@ -118,6 +122,10 @@ body.full-width .block-class-home-comment .block-title
     padding-top: space(24)
     padding-bottom: space(24)
 
+    @include media-breakpoint-down(desktop)
+        padding-top: space(6)
+        padding-bottom: space(6)
+
 body.full-width .block-class-home-pb 
 
     margin-bottom: 0
@@ -127,14 +135,15 @@ body.full-width .block-class-home-pb
     .container
         max-width: 65%
 
+        @include media-breakpoint-down(desktop)
+            max-width: 100%
+
     .block-content
         padding: pxToRem(32)
         margin-top: 0
 
     .chapter .text
         width: 100%
-        /*display: flex*/
-        /*justify-content: space-between*/
 
     .block-title
         text-wrap: balance;
@@ -143,12 +152,18 @@ body.full-width .block-class-home-pb
         font-size: pxToRem(32)
         text-align: center
 
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(24) 
+
     .rich-text
         text-wrap: pretty;
         font-family: $body-font-family
         font-size: pxToRem(22)
         text-align: center
         line-height: 130%
+
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(18) 
 
     .text
         .top
@@ -169,10 +184,10 @@ body.full-width .block.block-class-home-piliers
     margin-top: $spacing-6
     /*background: linear-gradient(180deg, #FFF 0%, rgba(255, 250, 242, 0.00) 100%)*/
 
-    .top
+    /*.top
         text-align: center
         margin-left: auto
-        margin-right: auto
+        margin-right: auto*/
 
     .block-content ul li
         
@@ -208,7 +223,7 @@ body.full-width .block.block-class-home-piliers
             /*border-radius: pxToRem(100) pxToRem(16) pxToRem(100) pxToRem(16)*/
 
     .description p
-        font-size: pxToRem(64)
+        font-size: pxToRem(56)
         text-wrap: pretty
         font-family: $heading-font-family
         font-weight: 600
