@@ -5,14 +5,11 @@ body.full-width.page__home .block
     margin-bottom: space(48)
 
 // SURTITRE
-body.full-width .block-class-home-piliers .block-title,
-body.full-width .block-class-home-offre .block-title,
-body.full-width .block-class-home-apropos .block-title,
-body.full-width .block-class-home-comment .block-title
+body.full-width .block-title
 
     font-size: pxToRem(18)
     font-family: $body-font-family
-    font-weight: 600
+    font-weight: 800
     text-transform: uppercase
 
     display: inline-flex
@@ -179,7 +176,7 @@ body.full-width .block-class-home-pb
         width: 54px
 
 
-// PILIERS
+// CE QUE JE FAIS
 body.full-width .block.block-class-home-piliers
     margin-top: $spacing-6
     /*background: linear-gradient(180deg, #FFF 0%, rgba(255, 250, 242, 0.00) 100%)*/
@@ -249,11 +246,6 @@ body.full-width .block-class-home-avis
         padding-top: pxToRem(64)
         padding-bottom: pxToRem(32)
 
-    .block-title
-        text-transform: none
-        font-size: pxToRem(32)
-        font-weight: 600
-
     .testimonial
         .meta
             font-size: pxToRem(14)
@@ -262,31 +254,6 @@ body.full-width .block-class-home-avis
 // VOUS ETES
 
 body.full-width .block-class-home-offres-header
-
-    .container
-        background: #FFFFFF
-        border-radius: pxToRem(50)
-        padding: pxToRem(56) pxToRem(64)
-
-    .top
-        width: 80%
-    
-    .text
-        display: flex
-        justify-content: center
-        flex-direction: column
-        align-items: center
-        width: 100% !important
-    
-    .block-title
-        text-transform: none
-        font-size: pxToRem(40)
-        font-weight: 600
-        text-align: center
-        text-wrap: balance
-        
-        @include media-breakpoint-down(desktop)
-            font-size: pxToRem(32)
 
     .notes a
         font-size: pxToRem(32)
@@ -297,28 +264,31 @@ body.full-width .block-class-home-offres-header
     .notes a:hover
         text-decoration-color: #7075EF
 
-    .rich-text ul
+    .rich-text
+        p
+            font-size: pxToRem(40)
+            line-height: 110%
+        ul
+            padding: 0
+            text-align: left
 
-        padding: 0
-        text-align: center
+            li
+                padding-bottom: pxToRem(26)
+                padding-right: pxToRem(16)
 
-        li
-            padding-bottom: pxToRem(26)
-            padding-right: pxToRem(32)
+                font-size: pxToRem(34)
+                text-align: center
+                list-style-type: none
+                display: inline-flex
+                color: hsla(0, 0%, 0%, 0.40)
+                font-weight: 600
+                gap: pxToRem(16)
+                align-items: center
 
-            font-size: pxToRem(34)
-            text-align: center
-            list-style-type: none
-            display: inline-flex
-            color: hsla(0, 0%, 0%, 0.40)
-            font-weight: 600
-            gap: pxToRem(32)
-            align-items: center
+                @include media-breakpoint-down(desktop)
+                    font-size: pxToRem(26)
 
-            @include media-breakpoint-down(desktop)
-                font-size: pxToRem(26)
-
-        li:not(:last-child):after
+            li:not(:last-child):after
                     display: inline-flex
                     content: ''
                     background-image: url('/assets/images/deco-title-f-o.svg')
@@ -342,13 +312,9 @@ body.full-width .block.block-class-home-realisations
 
     .top
         margin-bottom: space(24)
-
+    
     .block-title
         color: $color-background
-        font-size: pxToRem(64)
-        text-transform: none
-        font-weight: 600
-        text-align: center
 
     .project
 
@@ -373,7 +339,7 @@ body.full-width .block.block-class-home-realisations
     margin-bottom: 2rem
 
 
-// cta
+// cta realisations
 body.full-width .block.block-class-home-cta-realisations
 
     margin-top: 0
@@ -384,7 +350,7 @@ body.full-width .block.block-class-home-cta-realisations
     .block-content
         padding-top: 0
         padding-bottom: 0
-        text-align: center
+        text-align: left
 
 
 
@@ -400,17 +366,9 @@ body.full-width .block-class-home-comment
         font-weight: 600
         line-height: 110%
         font-family: $heading-font-family
-    
-    .top
-        text-align: center
-        margin-left: auto
-        margin-right: auto
-
-    .block-title
-        text-align: center
 
     .description
-        font-size: pxToRem(64)
+        font-size: pxToRem(56)
         font-family: $heading-font-family
         text-transform: none
         font-weight: 600
@@ -449,3 +407,16 @@ body.full-width.page__home .block.block-class-footer-cta
 
 
 
+body.full-width .block-chapter
+    .block-content 
+        .text
+            display: flex;
+            gap: var(--grid-gutter)
+            width: columns(12)
+
+            .top
+                @include media-breakpoint-up(desktop)
+                    width: columns(4)
+            .rich-text
+                @include media-breakpoint-up(desktop)
+                 width: columns(8)
