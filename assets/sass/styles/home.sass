@@ -9,7 +9,7 @@ body.full-width .block-title
 
     font-size: pxToRem(18)
     font-family: $body-font-family
-    font-weight: 800
+    font-weight: 600
     text-transform: uppercase
 
     display: inline-flex
@@ -251,9 +251,22 @@ body.full-width .block-class-home-avis
             font-size: pxToRem(14)
 
 
-// VOUS ETES
+// POUR QUI
 
-body.full-width .block-class-home-offres-header
+body.full-width .block-class-home-pourqui
+
+    .block-content 
+        .text
+            display: flex;
+            gap: var(--grid-gutter)
+            width: columns(12)
+
+            .top
+                @include media-breakpoint-up(desktop)
+                    width: columns(4)
+            .rich-text
+                @include media-breakpoint-up(desktop)
+                 width: columns(8)
 
     .notes a
         font-size: pxToRem(32)
@@ -268,12 +281,14 @@ body.full-width .block-class-home-offres-header
         p
             font-size: pxToRem(40)
             line-height: 110%
+            font-family: $heading-font-family
+            margin-bottom: 2rem
         ul
             padding: 0
             text-align: left
 
             li
-                padding-bottom: pxToRem(26)
+                padding-bottom: pxToRem(22)
                 padding-right: pxToRem(16)
 
                 font-size: pxToRem(34)
@@ -297,6 +312,8 @@ body.full-width .block-class-home-offres-header
                     background-size: 14px 14px
                     height: 14px
                     width: 14px
+        a
+            font-size: pxToRem(20)
 
 
 
@@ -406,17 +423,3 @@ body.full-width.page__home .block.block-class-footer-cta
     margin-top: 0
 
 
-
-body.full-width .block-chapter
-    .block-content 
-        .text
-            display: flex;
-            gap: var(--grid-gutter)
-            width: columns(12)
-
-            .top
-                @include media-breakpoint-up(desktop)
-                    width: columns(4)
-            .rich-text
-                @include media-breakpoint-up(desktop)
-                 width: columns(8)
