@@ -35,6 +35,9 @@ body.full-width .block.block-class-footer-cta
         font-size: pxToRem(24)
         color: $color-hero
         text-transform: none
+        
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(18)
 
     .description p
         font-size: pxToRem(32)
@@ -42,3 +45,6 @@ body.full-width .block.block-class-footer-cta
         
         font-family: $body-font-family
         font-weight: $body-weight
+
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(22)

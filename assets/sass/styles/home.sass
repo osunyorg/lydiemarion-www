@@ -4,6 +4,12 @@ body.full-width.page__home .block
     margin-top: space(48)
     margin-bottom: space(48)
 
+    @include media-breakpoint-down(desktop)
+        margin-top: space(24)
+        margin-bottom: space(24)
+    .top
+        margin-bottom: space(8)
+
 // SURTITRE
 body.full-width .block-title
 
@@ -28,6 +34,9 @@ body.full-width .block-title
         background-size: 14px 14px
         height: 14px
         width: 14px
+    
+    @include media-breakpoint-down(desktop)
+        font-size: pxToRem(14)
 
 
 // HERO
@@ -38,7 +47,7 @@ body.full-width .block-title
     background-position: bottom center
     background-size: 100%
 
-    padding-bottom: $spacing-6
+    padding-bottom: space(56)
     padding-top: space(40)
 
     @include media-breakpoint-down(desktop)
@@ -121,19 +130,19 @@ body.full-width .block-title
         padding-bottom: space(6)
 
 body.full-width .block-class-home-pb
+    @include media-breakpoint-up(desktop)
+        .block-content 
+            .text
+                display: flex;
+                gap: var(--grid-gutter)
+                width: columns(12)
 
-    .block-content 
-        .text
-            display: flex;
-            gap: var(--grid-gutter)
-            width: columns(12)
-
-            .top
-                @include media-breakpoint-up(desktop)
-                    width: columns(4)
-            .rich-text
-                @include media-breakpoint-up(desktop)
-                 width: columns(8)
+                .top
+                    @include media-breakpoint-up(desktop)
+                        width: columns(4)
+                .rich-text
+                    @include media-breakpoint-up(desktop)
+                    width: columns(8)
 
     margin-bottom: 0
 
@@ -167,11 +176,17 @@ body.full-width .block.block-class-home-piliers
             
             padding: pxToRem(8) pxToRem(16)
 
+            @include media-breakpoint-down(desktop)
+                font-size: pxToRem(12)
+
         p:first-child
             font-size: $h3-size-desktop
             font-weight: 600
             line-height: 110%
             font-family: $heading-font-family
+        
+            @include media-breakpoint-down(desktop)
+                font-size: $h3-size
 
         img
             border-radius: pxToRem(8)
@@ -192,7 +207,7 @@ body.full-width .block.block-class-home-piliers
         line-height: 110%
         
         @include media-breakpoint-down(desktop)
-            font-size: pxToRem(44)
+            font-size: pxToRem(32)
 
 
 
@@ -208,8 +223,12 @@ body.full-width .block-class-home-avis
     background-color: $color-hero-background-2
 
     .block-content
-        padding-top: pxToRem(64)
-        padding-bottom: pxToRem(32)
+        padding-top: pxToRem(128)
+        padding-bottom: pxToRem(96)
+        
+        @include media-breakpoint-down(desktop)
+            padding-top: space(8)
+            padding-bottom: space(8)
 
     .testimonial
         .meta
@@ -219,19 +238,19 @@ body.full-width .block-class-home-avis
 // POUR QUI
 
 body.full-width .block-class-home-pourqui
+    @include media-breakpoint-up(desktop)
+        .block-content 
+            .text
+                display: flex;
+                gap: var(--grid-gutter)
+                width: columns(12)
 
-    .block-content 
-        .text
-            display: flex;
-            gap: var(--grid-gutter)
-            width: columns(12)
-
-            .top
-                @include media-breakpoint-up(desktop)
-                    width: columns(4)
-            .rich-text
-                @include media-breakpoint-up(desktop)
-                 width: columns(8)
+                .top
+                    @include media-breakpoint-up(desktop)
+                        width: columns(4)
+                .rich-text
+                    @include media-breakpoint-up(desktop)
+                    width: columns(8)
 
     .notes a
         font-size: pxToRem(32)
@@ -248,6 +267,9 @@ body.full-width .block-class-home-pourqui
             line-height: 110%
             font-family: $heading-font-family
             margin-bottom: 2rem
+            
+            @include media-breakpoint-down(desktop)
+                font-size: pxToRem(32)
         ul
             padding: 0
             text-align: left
@@ -266,7 +288,10 @@ body.full-width .block-class-home-pourqui
                 align-items: center
 
                 @include media-breakpoint-down(desktop)
-                    font-size: pxToRem(26)
+                    font-size: pxToRem(18)
+                    text-align: left
+                    padding-bottom: pxToRem(8)
+                    padding-right: pxToRem(4)
 
             li:not(:last-child):after
                     display: inline-flex
@@ -292,8 +317,8 @@ body.full-width .block.block-class-home-realisations
     margin-bottom: 0
     padding-top: space(32)
 
-    .top
-        margin-bottom: space(24)
+    @include media-breakpoint-down(desktop)
+        padding-top: space(8)
     
     .block-title
         color: $color-background
@@ -307,6 +332,9 @@ body.full-width .block.block-class-home-realisations
             font-size: pxToRem(26)
             color: $color-background
             margin-top: pxToRem(16)
+        
+            @include media-breakpoint-down(desktop)
+                font-size: pxToRem(22)
 
         .project-categories li a
             color: hsla(0, 0%, 100%, 0.70)
@@ -326,8 +354,11 @@ body.full-width .block.block-class-home-cta-realisations
 
     margin-top: 0
     margin-bottom: 0
-    padding-bottom: pxToRem(56)
+    padding-bottom: pxToRem(96)
     background: $footer-background-color
+
+    @include media-breakpoint-down(desktop)
+        padding-bottom: pxToRem(48)
 
     .block-content
         padding-top: 0
@@ -342,12 +373,19 @@ body.full-width .block.block-class-home-cta-realisations
 body.full-width .block-class-home-comment
 
     margin-top: space(32) !important
+    
+    @include media-breakpoint-down(desktop)
+        margin-top: space(16) !important
+    
 
     .name
         font-size: $h3-size-desktop
         font-weight: 600
         line-height: 110%
         font-family: $heading-font-family
+    
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(22)
 
     .description
         font-size: pxToRem(56)
@@ -355,6 +393,9 @@ body.full-width .block-class-home-comment
         text-transform: none
         font-weight: 600
         line-height: 120%
+
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(32)
     li
         align-items: start
 
@@ -364,12 +405,11 @@ body.full-width.page__home .block-class-home-apropos
 
     background: $color-hero-background-2
     margin-bottom: 0
-    padding-bottom: space(48)
+    padding-bottom: pxToRem(96)
+    padding-top: pxToRem(128)
 
     .container
-        
         border-radius: pxToRem(50)
-        padding: pxToRem(56) pxToRem(64)
 
     .chapter
         align-items: center
@@ -381,6 +421,9 @@ body.full-width.page__home .block-class-home-apropos
         text-wrap: balance
         margin-top: pxToRem(24)
 
+        @include media-breakpoint-down(desktop)
+            font-size: pxToRem(22)
+
     .chapter img
         transform: rotate(5deg)
 
@@ -388,3 +431,17 @@ body.full-width.page__home .block.block-class-footer-cta
     margin-top: 0
 
 
+// CHIFFRES
+
+body.full-width.page__home  .block-key_figures
+
+    margin-top: space(24)
+    margin-bottom: space(24)
+
+@media (min-width: 1440px)
+    .block-key_figures li strong
+        font-size: pxToRem(64)
+
+@media (min-width: 1440px)
+    .block-key_figures li
+        font-size: pxToRem(18)

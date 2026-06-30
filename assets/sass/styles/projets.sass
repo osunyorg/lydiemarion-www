@@ -17,6 +17,9 @@ body.full-width
                 margin-top: space(8)
                 color: $color-text
                 font-weight: 600
+                
+                @include media-breakpoint-down(desktop)
+                    font-size: pxToRem(22)
             .more
                 margin-top: space(8)
     
@@ -88,6 +91,9 @@ body.full-width
                 font-weight: 600
                 color: $color-text
                 padding-top: space(8)
+
+                @include media-breakpoint-down(desktop)
+                    font-size: pxToRem(32)
 
 .projects__page.page-demoiselle-absolue
     .hero
