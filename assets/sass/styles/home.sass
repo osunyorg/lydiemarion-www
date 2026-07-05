@@ -56,7 +56,7 @@ body.full-width .block-title
 
     .content hgroup.has-lead > p
         font-family: $body-font-family
-        text-wrap: pretty
+        text-wrap: balance
         font-size: pxToRem(26)
         text-align: center
 
@@ -426,6 +426,10 @@ body.full-width.page__home .block-class-home-apropos
 
     .chapter img
         transform: rotate(5deg)
+    
+    @include media-breakpoint-down(desktop)
+        .image-portrait
+            width: 70%
 
 body.full-width.page__home .block.block-class-footer-cta
     margin-top: 0
@@ -440,7 +444,7 @@ body.full-width.page__home  .block-key_figures
 
 @media (min-width: 1440px)
     .block-key_figures li strong
-        font-size: pxToRem(64)
+        font-size: pxToRem(40)
 
 @media (min-width: 1440px)
     .block-key_figures li
