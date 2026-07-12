@@ -435,17 +435,19 @@ body.full-width.page__home .block.block-class-footer-cta
     margin-top: 0
 
 
-// CHIFFRES
+// SCORE
 
-body.full-width.page__home  .block-key_figures
+body.full-width.page__home  .block-class-score
 
-    margin-top: space(24)
-    margin-bottom: space(24)
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 
-@media (min-width: 1440px)
-    .block-key_figures li strong
-        font-size: pxToRem(40)
+    .chapter
+        flex-direction: column
+        
+        figure
+            width: 50%
 
-@media (min-width: 1440px)
-    .block-key_figures li
-        font-size: pxToRem(18)
+
+    .rich-text
+        font-size: pxToRem(16)
