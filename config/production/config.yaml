@@ -7,6 +7,10 @@ osuny:
   website:
     id: aa11dd05-8b1c-4161-8e5b-4337634fe539
 
+## PARAMS
+params:
+  _merge: deep
+  plausible: "lydiemarion.fr"
 
 ## LANGUAGE
 defaultContentLanguage: fr
