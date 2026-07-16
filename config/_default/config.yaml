@@ -2,6 +2,8 @@ theme: osuny
 _merge: deep
 params:
 
+  additional_csp: app.cal.com 'unsafe-inline'
+
   breadcrumb:
     extendable: false
     position: hero-end
