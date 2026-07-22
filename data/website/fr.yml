@@ -1,6 +1,6 @@
 default:
 contents_reading_time:
-  seconds: 8
+  seconds: 16
   text: >-
     moins d'une minute
 contents:
@@ -34,6 +34,33 @@ contents:
           url: >-
             /contact
           target_blank: false
+
+
+  - kind: block
+    template: chapter
+    title: >-
+      Ce site est éco-conçu
+    slug: >-
+      ce-site-est-eco-concu
+    ranks:
+      base: 2
+      self: 2
+    top:
+      active: true
+      title: 
+        value: >-
+          Ce site est éco-conçu
+        heading: 2
+
+    data:
+      layout: accent_background
+      text: >-
+        <p>Cette page web atteint la note B en matière d'empreinte carbone.<br>C'est plus propre que 74 % de toutes les pages web du monde entier.</p>
+      notes: >-
+        <p>Source Website carbon.</p>
+
+
+
 
 
 
