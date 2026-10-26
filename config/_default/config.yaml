@@ -4,6 +4,9 @@ params:
 
   additional_csp: app.cal.com 'unsafe-inline'
 
+  toc:
+    disabled: true
+
   breadcrumb:
     extendable: false
     position: hero-end
