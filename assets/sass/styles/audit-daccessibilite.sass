@@ -20,19 +20,6 @@ $audit-color-step-card: rgba(210, 220, 255, 0.5)
 // Dossier des illustrations à exporter depuis Figma (voir liste dans mon message)
 $audit-images: '/assets/images/audit'
 
-// ---------------------------------------------------------------------
-// ID DES TITRES DE SECTION (générés par Osuny à partir du titre du bloc)
-// Si tu changes un titre, l'id change : mets à jour la ligne correspondante.
-// ---------------------------------------------------------------------
-$audit-id-pb: '#beaucoup-de-sites-sont-difficiles-a-utiliser'
-$audit-id-loi: '#pour-un-service-public-c-est-une-obligation'
-$audit-id-plan: '#un-plan-d-action-en-3-etapes'
-$audit-id-recu: '#concretement-qu-allez-vous-recevoir'
-$audit-id-pour-qui: '#est-ce-que-cet-audit-est-fait-pour-vous'
-$audit-id-moi: '#pourquoi-faire-votre-audit-avec-moi'
-$audit-id-refs: '#je-les-ai-accompagne-dans-l-accessibilite-de-leur-produit-numerique'
-$audit-id-faq: '#des-questions-sur-l-audit-d-accessibilite'
-
 
 // ---------------------------------------------------------------------
 // MIXINS
@@ -129,24 +116,28 @@ body.page-home-audit
             gap: space(8)
             padding-top: 0
 
-            // Illustration ronde (décorative) : pas présente dans le HTML,
-            .hero-image
-                position: relative
-                order: 2
-                flex: 0 0 pxToRem(456)
-                width: pxToRem(456)
-                height: pxToRem(456)
-                aspect-ratio: 1
-                margin: 0
-                border-radius: 50%
-                overflow: hidden
+            @include media-breakpoint-down(desktop)
+                flex-direction: column
+                align-items: stretch
+
+        // Illustration ronde à droite du hero (cercle de 456 × 456 dans la maquette)
+        .hero-image
+            position: relative
+            order: 2
+            flex: 0 0 pxToRem(456)
+            width: pxToRem(456)
+            height: pxToRem(456)
+            aspect-ratio: 1
+            margin: 0
+            border-radius: 50%
+            overflow: hidden
 
             // le bouton de la visionneuse et le <picture> remplissent le cercle
             .lightbox-button,
-                picture
-                    display: block
-                    width: 100%
-                    height: 100%
+            picture
+                display: block
+                width: 100%
+                height: 100%
 
             img
                 display: block
@@ -160,12 +151,13 @@ body.page-home-audit
                 border-radius: 50%
 
             // Mobile : image plus petite, centrée sous le texte
-                @include media-breakpoint-down(desktop)
-                    order: 0
-                    flex: 0 0 auto
-                    width: min(100%, #{pxToRem(280)})
-                    height: auto
-                    margin: 0 auto
+            @include media-breakpoint-down(desktop)
+                order: 0
+                flex: 0 0 auto
+                width: 100%
+                max-width: pxToRem(280)
+                height: auto
+                margin: 0 auto
 
         .hero-text
             flex: 0 1 pxToRem(648)
@@ -260,8 +252,12 @@ body.page-home-audit
 
     // =================================================================
     // BLOCS DE LA PAGE
-    // Les sections de la maquette sont reconstruites à partir des blocs
-    // Osuny qui se suivent, en s'appuyant sur l'id du titre de chaque section.
+    // Dans Osuny, chaque bloc porte une classe de couleur
+    //   audit-bleu · audit-bleu-clair · audit-creme
+    // et, si besoin, une classe de rôle
+    //   audit-cartes · audit-carte · audit-etapes · audit-livrables · audit-liste
+    //   audit-rdv · audit-moi · audit-refs
+    // Osuny préfixe chaque classe en « block-class- ».
     // =================================================================
     .document-content > .blocks
 
@@ -371,50 +367,63 @@ body.page-home-audit
                     color: $audit-color-text
 
 
+
         // ---------------------------------------------------------------
-        // SECTION 1 : « Beaucoup de sites… »   (fond bleu, 3 cartes)
-        // Le bloc « 4,68 % » n'est pas dans la maquette : je le garde dans
-        // la même section pour que le fond bleu ne soit pas coupé.
+        // COULEURS DE SECTION
+        // (audit-creme n'a pas de fond : c'est celui de la page)
         // ---------------------------------------------------------------
-        #{$audit-id-pb},
-        #{$audit-id-pb} + .block,
-        #{$audit-id-pb} + .block + .block
+        .block-class-audit-bleu
             @include audit-section($audit-color-blue, #fff)
 
-        #{$audit-id-pb}
-            @include audit-pad(top)
-
-        #{$audit-id-pb} + .block + .block
-            @include audit-pad(bottom)
-
-            .notes a
-                color: inherit
-
-        #{$audit-id-pb} + .block .features
-            grid-template-columns: repeat(3, 1fr)
-
-            @include media-breakpoint-down(desktop)
-                grid-template-columns: 1fr
-
-        #{$audit-id-pb} + .block .feature
-            @include audit-card($audit-color-blue-light)
-            min-height: pxToRem(271)
-
-            .feature-content
-                gap: space(8)
+        .block-class-audit-bleu-clair
+            @include audit-section($audit-color-blue-light)
 
 
         // ---------------------------------------------------------------
-        // SECTION 2 : « Pour un service public… »   (fond crème)
+        // ESPACES ENTRE SECTIONS (sans dépendre de l'ordre des blocs)
         // ---------------------------------------------------------------
-        #{$audit-id-loi}
+        // Début de section : chaque titre démarre avec 72 px au-dessus
+        > .heading
             @include audit-pad(top)
 
-        #{$audit-id-loi} + .block + .block + .block
+        // Fin de section : le dernier bloc avant le titre suivant
+        // (ou avant le bloc rendez-vous), et le tout dernier bloc de la page
+        > .block:has(+ .heading),
+        > .block:has(+ .block-class-audit-rdv),
+        > .block:last-child
             @include audit-pad(bottom)
 
-        // Paragraphes
-        #{$audit-id-loi} + .block .chapter .text
+        // Sauf si la section continue avec la même couleur : 32 px seulement
+        > .block-class-audit-bleu:has(+ .heading.block-class-audit-bleu),
+        > .block-class-audit-bleu-clair:has(+ .heading.block-class-audit-bleu-clair)
+            padding-bottom: space(8)
+
+
+        // ---------------------------------------------------------------
+        // SECTION 1 : « Beaucoup de sites… »
+        // Cartes : audit-bleu audit-cartes
+        // ---------------------------------------------------------------
+        .block-class-audit-cartes
+            .features
+                grid-template-columns: repeat(3, 1fr)
+
+                @include media-breakpoint-down(desktop)
+                    grid-template-columns: 1fr
+
+            .feature
+                @include audit-card($audit-color-blue-light)
+                min-height: pxToRem(271)
+
+                .feature-content
+                    gap: space(8)
+
+
+        // ---------------------------------------------------------------
+        // SECTION 2 : « Pour un service public… »
+        // Texte : audit-creme   ·   Carte : audit-creme audit-carte
+        // ---------------------------------------------------------------
+        // Paragraphes (sert aussi à la liste de la section 4)
+        .block-class-audit-creme .chapter .text
             max-width: pxToRem(800)
             margin: 0 auto
 
@@ -425,7 +434,7 @@ body.page-home-audit
                     margin-bottom: 0
 
         // Carte « Ce que l'audit change pour vous »
-        #{$audit-id-loi} + .block + .block .chapter .text
+        .block-class-audit-carte .chapter .text
             @include audit-card($audit-color-blue-light)
             max-width: pxToRem(768)
             margin: 0 auto
@@ -445,132 +454,110 @@ body.page-home-audit
 
 
         // ---------------------------------------------------------------
-        // SECTION 3 : « Un plan d'action… » + « Concrètement… »  (fond bleu)
+        // SECTION 3 : « Un plan d'action… » + « Concrètement… »
+        // Étapes : audit-bleu audit-etapes
         // ---------------------------------------------------------------
-        #{$audit-id-plan},
-        #{$audit-id-plan} + .block,
-        #{$audit-id-plan} + .block + .block,
-        #{$audit-id-recu},
-        #{$audit-id-recu} + .block
-            @include audit-section($audit-color-blue, #fff)
-
-        #{$audit-id-plan},
-        #{$audit-id-recu}
-            @include audit-pad(top)
-
-        #{$audit-id-recu} + .block
-            @include audit-pad(bottom)
-
         // Les 3 étapes : illustration en haut, pastille numérotée, titre, texte
-        #{$audit-id-plan} + .block .features
-            grid-template-columns: repeat(3, 1fr)
-            counter-reset: audit-step
-
-            @include media-breakpoint-down(desktop)
-                grid-template-columns: 1fr
-
-        #{$audit-id-plan} + .block .feature
-            counter-increment: audit-step
-            padding: 0
-            overflow: hidden
-            background: $audit-color-step-card
-            color: $audit-color-text
-            text-align: center
-
-            border-radius: pxToRem(100) pxToRem(16) pxToRem(100) pxToRem(16)
-
-            &:nth-child(2)
-                border-radius: pxToRem(16) pxToRem(16) pxToRem(16) pxToRem(16)
-
-            &:nth-child(3)
-                border-radius: pxToRem(16) pxToRem(96) pxToRem(16) pxToRem(96)
-
-            // Illustration (décorative)
-            &::before
-                content: ''
-                display: block
-                height: pxToRem(306)
-                background: url('#{$audit-images}/etape-visio.svg') center bottom / cover no-repeat
-
-            &:nth-child(1)::before
-                background-image: url('#{$audit-images}/etape-cadrage.svg')
-
-            .feature-content
-                padding: 0 space(8) space(8)
-                gap: space(2)
-
-                // Pastille 1 / 2 / 3 (le numéro est masqué aux lecteurs d'écran)
-                &::before
-                    content: counter(audit-step)
-                    content: counter(audit-step) / ''
-                    display: flex
-                    align-items: center
-                    justify-content: center
-                    width: pxToRem(40)
-                    height: pxToRem(40)
-                    margin: space(8) 0 space(2)
-                    border-radius: 50%
-                    background: $audit-color-text
-                    color: #fff
-                    font-family: $heading-font-family
-                    font-weight: 700
-                    font-size: pxToRem(24)
-                    line-height: 1
-
-            .name
-                font-size: pxToRem(32)
+        .block-class-audit-etapes
+            .features
+                grid-template-columns: repeat(3, 1fr)
+                counter-reset: audit-step
 
                 @include media-breakpoint-down(desktop)
-                    font-size: pxToRem(24)
+                    grid-template-columns: 1fr
 
-            .feature-description p
-                line-height: normal
+            .feature
+                counter-increment: audit-step
+                padding: 0
+                overflow: hidden
+                background: $audit-color-step-card
+                color: $audit-color-text
+                text-align: center
 
-        // CTA lime sous les étapes
-        #{$audit-id-plan} + .block + .block .actions a
-            @include audit-button($audit-color-lime, $audit-color-text, $audit-color-cream-card, $audit-color-text)
+                border-radius: pxToRem(100) pxToRem(16) pxToRem(100) pxToRem(16)
+
+                &:nth-child(2)
+                    border-radius: pxToRem(16) pxToRem(16) pxToRem(16) pxToRem(16)
+
+                &:nth-child(3)
+                    border-radius: pxToRem(16) pxToRem(96) pxToRem(16) pxToRem(96)
+
+                // Illustration (décorative)
+                &::before
+                    content: ''
+                    display: block
+                    height: pxToRem(306)
+                    background: url('#{$audit-images}/etape-visio.svg') center bottom / cover no-repeat
+
+                &:nth-child(1)::before
+                    background-image: url('#{$audit-images}/etape-cadrage.svg')
+
+                .feature-content
+                    padding: 0 space(8) space(8)
+                    gap: space(2)
+
+                    // Pastille 1 / 2 / 3 (le numéro est masqué aux lecteurs d'écran)
+                    &::before
+                        content: counter(audit-step)
+                        content: counter(audit-step) / ''
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        width: pxToRem(40)
+                        height: pxToRem(40)
+                        margin: space(8) 0 space(2)
+                        border-radius: 50%
+                        background: $audit-color-text
+                        color: #fff
+                        font-family: $heading-font-family
+                        font-weight: 700
+                        font-size: pxToRem(24)
+                        line-height: 1
+
+                .name
+                    font-size: pxToRem(32)
+
+                    @include media-breakpoint-down(desktop)
+                        font-size: pxToRem(24)
+
+                .feature-description p
+                    line-height: normal
 
         // Les 4 livrables : grille 2 × 2, pictogramme en haut
-        #{$audit-id-recu} + .block .features
-            grid-template-columns: repeat(2, 1fr)
-            max-width: pxToRem(800)
-            margin: 0 auto
-
-            @include media-breakpoint-down(desktop)
-                grid-template-columns: 1fr
-
-        #{$audit-id-recu} + .block .feature
-            @include audit-card($audit-color-blue-light)
-            min-height: pxToRem(271)
-
-            figure.media--image img
-                width: 103px
-                height: auto
-                aspect-ratio: inherit
-                object-fit: inherit
-                margin: auto
-
-            .feature-content
-                gap: space(2)
-
-            .feature-description p
-                font-size: pxToRem(16)
-                line-height: normal
-
-
-        // ---------------------------------------------------------------
-        // SECTION 4 : « Est-ce que cet audit est fait pour vous ? » (crème)
-        // ---------------------------------------------------------------
-        #{$audit-id-pour-qui}
-            @include audit-pad(top)
-
-        #{$audit-id-pour-qui} + .block
-            @include audit-pad(bottom)
-
-            .chapter .text
+        // (audit-bleu audit-livrables)
+        .block-class-audit-livrables
+            .features
+                grid-template-columns: repeat(2, 1fr)
                 max-width: pxToRem(800)
                 margin: 0 auto
 
+                @include media-breakpoint-down(desktop)
+                    grid-template-columns: 1fr
+
+            .feature
+                @include audit-card($audit-color-blue-light)
+                min-height: pxToRem(271)
+
+                figure.media--image img
+                    width: 103px
+                    height: auto
+                    aspect-ratio: inherit
+                    object-fit: inherit
+                    margin: auto
+
+                .feature-content
+                    gap: space(2)
+
+                .feature-description p
+                    font-size: pxToRem(16)
+                    line-height: normal
+
+
+        // ---------------------------------------------------------------
+        // SECTION 4 : « Est-ce que cet audit est fait pour vous ? »
+        // Liste : audit-creme audit-liste
+        // ---------------------------------------------------------------
+        .block-class-audit-liste
             ul
                 display: flex
                 flex-direction: column
@@ -607,12 +594,11 @@ body.page-home-audit
 
 
         // ---------------------------------------------------------------
-        // SECTION 5 : « Prendre rendez-vous… »   (fond bleu, CTA lime)
+        // SECTION 5 : « Prendre rendez-vous… »
+        // audit-bleu audit-rdv  (bouton lime : voir plus bas)
         // ---------------------------------------------------------------
-        #{$audit-id-pour-qui} + .block + .block
-            @include audit-section($audit-color-blue, #fff)
+        .block-class-audit-rdv
             @include audit-pad(top)
-            @include audit-pad(bottom)
 
             .top
                 margin-bottom: space(8)
@@ -642,32 +628,17 @@ body.page-home-audit
                 height: pxToRem(120)
                 margin: 0 auto space(8)
                 border-radius: 50%
-                background: rgba(0, 0, 0, 0.2) url('#{$audit-images}/avatar-rdv.png') center / cover no-repeat
-
-            .actions a
-                @include audit-button($audit-color-lime, $audit-color-text, $audit-color-cream-card, $audit-color-text)
+                background: #3458BC url('#{$audit-images}/avatar-rdv.png') center / cover no-repeat
 
 
         // ---------------------------------------------------------------
-        // SECTION 6 : « Pourquoi faire votre audit avec moi ? »  (bleu clair)
+        // SECTION 6 : « Pourquoi faire votre audit avec moi ? »
+        // Texte + portrait : audit-bleu-clair audit-moi
+        // Sous-titre « Je les ai accompagnés… » : audit-bleu-clair audit-refs
         // ---------------------------------------------------------------
-        #{$audit-id-moi},
-        #{$audit-id-moi} + .block,
-        #{$audit-id-refs}
-            @include audit-section($audit-color-blue-light)
-
-        #{$audit-id-moi}
-            @include audit-pad(top)
-
-        #{$audit-id-refs}
-            @include audit-pad(bottom)
-
-            h2
-                font-size: pxToRem(24)
-
         // Texte à gauche, portrait à droite (le portrait se règle quand
         // une image est ajoutée dans ce bloc : il n'y en a pas dans le HTML actuel)
-        #{$audit-id-moi} + .block .chapter
+        .block-class-audit-moi .chapter
             display: flex
             align-items: stretch
             gap: space(4)
@@ -730,16 +701,18 @@ body.page-home-audit
                     border-radius: pxToRem(16)
                     background: linear-gradient(180deg, #DCF6FF 0%, #EAEBE6 100%)
 
+        // Sous-titre collé au bloc précédent (pas de 72 px au-dessus)
+        .block-class-audit-refs
+            padding-top: 0
+
+            h2
+                font-size: pxToRem(24)
+
 
         // ---------------------------------------------------------------
-        // SECTION 7 : FAQ   (fond crème)
+        // SECTION 7 : FAQ   (audit-creme, sur le titre et sur le bloc)
         // ---------------------------------------------------------------
-        #{$audit-id-faq}
-            @include audit-pad(top)
-
-        #{$audit-id-faq} + .block
-            @include audit-pad(bottom)
-
+        .block-definitions
             .definitions
                 max-width: pxToRem(800)
                 margin: 0 auto
@@ -772,8 +745,9 @@ body.page-home-audit
 
 
         // ---------------------------------------------------------------
-        // BOUTONS DES BLOCS « CALL TO ACTION » (bleu par défaut)
-        // Placé après les variantes lime : celles-ci ont un id, donc passent devant.
+        // BOUTONS DES BLOCS « CALL TO ACTION »
+        // Bleu par défaut (sections crème), lime dans les sections bleues.
+        // La règle lime est placée après : à spécificité égale, la dernière gagne.
         // ---------------------------------------------------------------
         .block-call_to_action
             .block-content
@@ -784,3 +758,6 @@ body.page-home-audit
 
                 a
                     @include audit-button($audit-color-blue, #fff, $audit-color-text, #fff)
+
+        .block-class-audit-bleu .actions a
+            @include audit-button($audit-color-lime, $audit-color-text, $audit-color-cream-card, $audit-color-text)
