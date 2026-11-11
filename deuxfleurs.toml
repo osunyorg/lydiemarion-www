@@ -54,3 +54,7 @@ to = "/realisations/2022-projet-2/"
 from = "/projets/index.html"
 to = "/realisations/"
 
+[[redirects]]
+from = "/audit-daccessibilite/index.html"
+to = "/audit-accessibilite-rgaa/"
+
