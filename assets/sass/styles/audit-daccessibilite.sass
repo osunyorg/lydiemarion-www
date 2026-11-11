@@ -8,7 +8,7 @@
 $audit-color-text: #101E42
 $audit-color-blue: #416EEB
 $audit-color-blue-light: #D2DCFF
-$audit-color-cream: #F6EEDC
+$audit-color-cream: #FEFCF5
 $audit-color-cream-card: #FFFAF2
 $audit-color-lime: #D6F79A
 $audit-color-line: rgba(16, 30, 66, 0.3)
@@ -90,19 +90,21 @@ body.page-home-audit
     // EN-TÊTE
     // -----------------------------------------------------------------
     header#document-header
-        background: $audit-color-blue-light
+        background: $audit-color-cream
         border-bottom-color: $audit-color-header-line
 
         #navigation.menu li:last-child
             background: $audit-color-menu-btn
         
+    .footer-contents
+        display: none
 
 
     // -----------------------------------------------------------------
     // HERO
     // -----------------------------------------------------------------
     header.hero
-        background: $audit-color-blue-light
+        background: $audit-color-cream
         padding-top: space(8)
         padding-bottom: space(16)
 
@@ -115,6 +117,7 @@ body.page-home-audit
             justify-content: space-between
             gap: space(8)
             padding-top: 0
+            margin-top: space(16)
 
             @include media-breakpoint-down(desktop)
                 flex-direction: column
@@ -187,7 +190,7 @@ body.page-home-audit
                 gap: space(4)
                 font-family: $heading-font-family
                 font-weight: 700
-                font-size: pxToRem(72)
+                font-size: pxToRem(96)
                 line-height: 100%
                 color: $audit-color-text
 
@@ -212,6 +215,7 @@ body.page-home-audit
                 font-weight: 400
                 font-size: pxToRem(20)
                 line-height: pxToRem(26)
+                text-wrap: balance
 
             // Les 3 engagements avec coche
             ul
@@ -247,7 +251,7 @@ body.page-home-audit
             text-align: left
 
             .btn
-                @include audit-button($audit-color-blue, #fff, $audit-color-text, #fff)
+                @include audit-button(#092DCB, #fff, $audit-color-text, #fff)
 
 
     // =================================================================
@@ -414,8 +418,13 @@ body.page-home-audit
                 @include audit-card($audit-color-blue-light)
                 min-height: pxToRem(271)
 
+                figure.media--image img
+                    width: 50%
+                    margin: auto
+                    object-fit: contain
+
                 .feature-content
-                    gap: space(8)
+                    gap: space(2)
 
 
         // ---------------------------------------------------------------
@@ -444,13 +453,14 @@ body.page-home-audit
 
             .block-title
                 margin: 0
+                text-align: left
 
             .rich-text
                 max-width: pxToRem(638)
                 margin: 0 auto
 
                 p
-                    margin: 0
+                    text-align: left
 
 
         // ---------------------------------------------------------------
@@ -483,14 +493,9 @@ body.page-home-audit
                     border-radius: pxToRem(16) pxToRem(96) pxToRem(16) pxToRem(96)
 
                 // Illustration (décorative)
-                &::before
-                    content: ''
-                    display: block
-                    height: pxToRem(306)
-                    background: url('#{$audit-images}/etape-visio.svg') center bottom / cover no-repeat
 
-                &:nth-child(1)::before
-                    background-image: url('#{$audit-images}/etape-cadrage.svg')
+                .media
+                    margin-top: pxToRem(40)
 
                 .feature-content
                     padding: 0 space(8) space(8)
@@ -599,12 +604,31 @@ body.page-home-audit
         // ---------------------------------------------------------------
         .block-class-audit-rdv
             @include audit-pad(top)
+            text-align: center
+
+            // Tout est empilé et centré : titre, texte, avatar, bouton.
+            // (le thème place le texte à gauche et l'action à droite)
+            .block-content,
+            .call_to_action,
+            .call_to_action > div
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                gap: 0
+                width: 100%
+                text-align: center
 
             .top
-                margin-bottom: space(8)
+                flex: 0 0 auto
+                width: 100%
+                max-width: none
+                margin: 0 0 space(8)
+                text-align: center
 
                 .block-title
                     margin: 0 0 space(8)
+                    text-align: center
                     font-size: pxToRem(40)
 
                     @include media-breakpoint-down(desktop)
@@ -613,12 +637,23 @@ body.page-home-audit
                 .description
                     max-width: pxToRem(800)
                     margin: 0 auto
+                    text-align: center
 
                     p
                         margin: 0 0 space(4)
+                        text-align: center
 
                         &:last-child
                             margin-bottom: 0
+
+            .actions
+                display: flex
+                flex-direction: column
+                align-items: center
+                flex: 0 0 auto
+                width: 100%
+                margin: 0
+                text-align: center
 
             // Avatar rond (décoratif), entre le texte et le bouton
             .actions::before
@@ -629,6 +664,12 @@ body.page-home-audit
                 margin: 0 auto space(8)
                 border-radius: 50%
                 background: #3458BC url('#{$audit-images}/avatar-rdv.png') center / cover no-repeat
+
+            // Le thème aligne le bouton à gauche : on le recentre explicitement
+            .actions a
+                align-self: center
+                justify-self: center
+                float: none
 
 
         // ---------------------------------------------------------------
@@ -657,32 +698,10 @@ body.page-home-audit
                 position: relative
                 flex: 1 1 0
                 display: flex
-                align-items: center
+                align-items: center 
                 justify-content: center
                 margin: 0
                 padding: space(4) 0
-
-                // Les deux cartes crème inclinées derrière le portrait
-                &::before,
-                &::after
-                    content: ''
-                    position: absolute
-                    background: $audit-color-cream
-                    border-radius: pxToRem(16)
-
-                &::before
-                    top: pxToRem(116)
-                    left: calc(50% - #{pxToRem(288)})
-                    width: pxToRem(178)
-                    height: pxToRem(173)
-                    transform: rotate(-16.22deg)
-
-                &::after
-                    top: pxToRem(44)
-                    left: calc(50% + #{pxToRem(112)})
-                    width: pxToRem(148)
-                    height: pxToRem(207)
-                    transform: rotate(12.56deg)
 
                 picture,
                 img
@@ -691,15 +710,11 @@ body.page-home-audit
 
                 img
                     display: block
-                    width: pxToRem(314)
-                    height: pxToRem(344)
                     max-width: 100%
                     object-fit: cover
                     object-position: top
                     margin: 0
                     transform: none
-                    border-radius: pxToRem(16)
-                    background: linear-gradient(180deg, #DCF6FF 0%, #EAEBE6 100%)
 
         // Sous-titre collé au bloc précédent (pas de 72 px au-dessus)
         .block-class-audit-refs
@@ -757,7 +772,7 @@ body.page-home-audit
                 text-align: center
 
                 a
-                    @include audit-button($audit-color-blue, #fff, $audit-color-text, #fff)
+                    @include audit-button(#092DCB, #fff, $audit-color-text, #fff)
 
         .block-class-audit-bleu .actions a
             @include audit-button($audit-color-lime, $audit-color-text, $audit-color-cream-card, $audit-color-text)
