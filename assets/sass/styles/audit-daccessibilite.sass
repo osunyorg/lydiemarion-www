@@ -5,11 +5,11 @@
 // ---------------------------------------------------------------------
 // COULEURS DE LA PAGE (différentes du reste du site)
 // ---------------------------------------------------------------------
-$audit-color-text: #101E42
+$audit-color-text: #2b2738
 $audit-color-blue: #416EEB
 $audit-color-blue-light: #D2DCFF
-$audit-color-cream: #FEFCF5
-$audit-color-cream-card: #FFFAF2
+$audit-color-cream: #f9f9f9
+$audit-color-cream-card: #F6EEDC
 $audit-color-lime: #D6F79A
 $audit-color-line: rgba(16, 30, 66, 0.3)
 $audit-color-header-line: rgba(0, 0, 0, 0.1)
@@ -33,9 +33,9 @@ $audit-images: '/assets/images/audit'
     clip-path: inset(0 -100vmax)
     color: $color
 
-// Marge intérieure de début / fin de section (72 px dans la maquette)
+// Marge intérieure de début / fin de section (96 px dans la maquette)
 @mixin audit-pad($side)
-    padding-#{$side}: space(18)
+    padding-#{$side}: space(24)
 
     @include media-breakpoint-down(desktop)
         padding-#{$side}: space(12)
@@ -71,7 +71,6 @@ $audit-images: '/assets/images/audit'
     border-radius: pxToRem(16)
     padding: space(8)
     color: $audit-color-text
-    text-align: center
 
 
 // =====================================================================
@@ -106,7 +105,8 @@ body.page-home-audit
     header.hero
         background: $audit-color-cream
         padding-top: space(8)
-        padding-bottom: space(16)
+        padding-bottom: space(32)
+        border-bottom: solid 1px $audit-color-text
 
         .breadcrumb-container
             display: none
@@ -178,7 +178,7 @@ body.page-home-audit
         .content hgroup
             display: flex
             flex-direction: column
-            gap: space(8)
+            gap: space(16)
             margin: 0
 
             > *
@@ -272,7 +272,6 @@ body.page-home-audit
             margin-bottom: 0
             padding-top: 0
             padding-bottom: space(8)
-            text-align: center
 
         // Surtitre du thème (body.full-width .block-title) neutralisé :
         // ici .block-title sert de vrai titre.
@@ -308,6 +307,7 @@ body.page-home-audit
             font-weight: 400
             font-size: pxToRem(20)
             line-height: pxToRem(26)
+            text-wrap: balance
 
             @include media-breakpoint-down(desktop)
                 font-size: pxToRem(18)
@@ -322,7 +322,6 @@ body.page-home-audit
 
                 .description
                     max-width: pxToRem(800)
-                    margin: 0 auto
 
                     p
                         margin: 0
@@ -346,7 +345,6 @@ body.page-home-audit
             .feature-content
                 display: flex
                 flex-direction: column
-                align-items: center
                 gap: space(2)
                 width: 100%
 
@@ -366,8 +364,8 @@ body.page-home-audit
                     margin: 0
                     font-family: $body-font-family
                     font-weight: 400
-                    font-size: pxToRem(20)
-                    line-height: pxToRem(26)
+                    font-size: pxToRem(18)
+                    line-height: normal
                     color: $audit-color-text
 
 
@@ -379,8 +377,7 @@ body.page-home-audit
         .block-class-audit-bleu
             @include audit-section($audit-color-blue, #fff)
 
-        .block-class-audit-bleu-clair
-            @include audit-section($audit-color-blue-light)
+
 
 
         // ---------------------------------------------------------------
@@ -415,7 +412,7 @@ body.page-home-audit
                     grid-template-columns: 1fr
 
             .feature
-                @include audit-card($audit-color-blue-light)
+                @include audit-card($audit-color-step-card)
                 min-height: pxToRem(271)
 
                 figure.media--image img
@@ -434,7 +431,6 @@ body.page-home-audit
         // Paragraphes (sert aussi à la liste de la section 4)
         .block-class-audit-creme .chapter .text
             max-width: pxToRem(800)
-            margin: 0 auto
 
             .rich-text p
                 margin: 0 0 space(4)
@@ -444,9 +440,8 @@ body.page-home-audit
 
         // Carte « Ce que l'audit change pour vous »
         .block-class-audit-carte .chapter .text
-            @include audit-card($audit-color-blue-light)
+            @include audit-card($audit-color-step-card)
             max-width: pxToRem(768)
-            margin: 0 auto
 
             .top
                 margin-bottom: space(8)
@@ -482,15 +477,9 @@ body.page-home-audit
                 overflow: hidden
                 background: $audit-color-step-card
                 color: $audit-color-text
-                text-align: center
 
                 border-radius: pxToRem(100) pxToRem(16) pxToRem(100) pxToRem(16)
 
-                &:nth-child(2)
-                    border-radius: pxToRem(16) pxToRem(16) pxToRem(16) pxToRem(16)
-
-                &:nth-child(3)
-                    border-radius: pxToRem(16) pxToRem(96) pxToRem(16) pxToRem(96)
 
                 // Illustration (décorative)
 
@@ -532,9 +521,7 @@ body.page-home-audit
         // (audit-bleu audit-livrables)
         .block-class-audit-livrables
             .features
-                grid-template-columns: repeat(2, 1fr)
-                max-width: pxToRem(800)
-                margin: 0 auto
+                grid-template-columns: repeat(4, 1fr)
 
                 @include media-breakpoint-down(desktop)
                     grid-template-columns: 1fr
@@ -548,13 +535,13 @@ body.page-home-audit
                     height: auto
                     aspect-ratio: inherit
                     object-fit: inherit
-                    margin: auto
 
                 .feature-content
                     gap: space(2)
 
+
                 .feature-description p
-                    font-size: pxToRem(16)
+                    font-size: pxToRem(18)
                     line-height: normal
 
 
@@ -575,7 +562,7 @@ body.page-home-audit
             li
                 margin: 0
                 padding: space(6)
-                background: $audit-color-cream-card
+                background: #EBFFC6
                 border-radius: pxToRem(16)
                 font-family: $body-font-family
                 font-weight: 400
@@ -730,7 +717,6 @@ body.page-home-audit
         .block-definitions
             .definitions
                 max-width: pxToRem(800)
-                margin: 0 auto
                 text-align: left
 
             .definition
@@ -766,13 +752,10 @@ body.page-home-audit
         // ---------------------------------------------------------------
         .block-call_to_action
             .block-content
-                padding: 0rem
-
-            .actions
-                text-align: center
+                padding-top: 0
+                padding-bottom: 0
 
                 a
                     @include audit-button(#092DCB, #fff, $audit-color-text, #fff)
 
-        .block-class-audit-bleu .actions a
-            @include audit-button($audit-color-lime, $audit-color-text, $audit-color-cream-card, $audit-color-text)
+
